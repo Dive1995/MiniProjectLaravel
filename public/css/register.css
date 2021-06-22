@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  line-height: 1.2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.btn-readmore, .btn-primary, .btn-secondary {
+  padding: 12px 24px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.btn-readmore {
+  color: #333;
+  border: 1px solid gray;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-readmore:hover {
+  background-color: #e1e1e1;
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: #64b0f3;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #3598ef;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  transition: all 250ms ease-in-out;
+  background-color: #e68e3b;
+}
+
+.btn-secondary:hover {
+  background-color: #d3741b;
+  transform: scale(1.1);
+}
+
+.card {
+  background-color: #fafafa;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 200ms ease;
+}
+
+.card-text {
+  padding: 10px 20px;
+}
+
+.card-text p {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header {
+  background: url(../images/register.jpeg) no-repeat center center/cover;
+  padding-bottom: 30px;
+  color: white;
+  height: 500px;
+  position: relative;
+}
+
+.header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header .content {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.header .content .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.header .content .navbar a {
+  color: white;
+  transition: all 200ms ease;
+}
+
+.header .content .navbar a:hover {
+  color: #e68e3b;
+  font-weight: bold;
+}
+
+.header .content .navbar .logo h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.header .content .navbar-links ul {
+  display: flex;
+  align-items: center;
+}
+
+.header .content .navbar-links ul li {
+  margin-left: 20px;
+}
+
+.header .content .showcase {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.header .content .showcase .register-form {
+  width: 70%;
+  height: auto;
+  background-color: #f4f4f4;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 125px;
+}
+
+.header .content .showcase .register-form h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.header .content .showcase .register-form form .input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.header .content .showcase .register-form form .input > input:nth-child(2) {
+  align-self: flex-end;
+}
+
+.header .content .showcase .register-form form .input input {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.header .content .showcase .register-form form .input .ceb-id {
+  width: 100%;
+}
+
+.header .content .showcase .register-form form .input .ceb label::before {
+  content: '*check your bill to find your account number';
+  color: red;
+  font-size: 11px;
+}
+
+.header .content .showcase .register-form form a {
+  display: block;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.footer {
+  position: relative;
+  top: 230px;
+  margin-top: 150px;
+}

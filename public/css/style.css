@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  line-height: 1.2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.btn-readmore, .btn-primary, .btn-secondary {
+  padding: 12px 24px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.btn-readmore {
+  color: #333;
+  border: 1px solid gray;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-readmore:hover {
+  background-color: #e1e1e1;
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: #64b0f3;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #3598ef;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  transition: all 250ms ease-in-out;
+  background-color: #e68e3b;
+}
+
+.btn-secondary:hover {
+  background-color: #d3741b;
+  transform: scale(1.1);
+}
+
+.card {
+  background-color: #fafafa;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 200ms ease;
+}
+
+.card-text {
+  padding: 10px 20px;
+}
+
+.card-text p {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.p-1 {
+  margin: 1rem;
+}
+
+.px-1 {
+  margin: 0 1rem;
+}
+
+.py-1 {
+  margin: 1rem 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.mx-2 {
+  margin: 0 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.p-2 {
+  margin: 2rem;
+}
+
+.px-2 {
+  margin: 0 2rem;
+}
+
+.py-2 {
+  margin: 2rem 0;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.mx-3 {
+  margin: 0 3rem;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.p-3 {
+  margin: 3rem;
+}
+
+.px-3 {
+  margin: 0 3rem;
+}
+
+.py-3 {
+  margin: 3rem 0;
+}
+
+.m-4 {
+  margin: 4rem;
+}
+
+.mx-4 {
+  margin: 0 4rem;
+}
+
+.my-4 {
+  margin: 4rem 0;
+}
+
+.p-4 {
+  margin: 4rem;
+}
+
+.px-4 {
+  margin: 0 4rem;
+}
+
+.py-4 {
+  margin: 4rem 0;
+}
+
+.m-5 {
+  margin: 5rem;
+}
+
+.mx-5 {
+  margin: 0 5rem;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.p-5 {
+  margin: 5rem;
+}
+
+.px-5 {
+  margin: 0 5rem;
+}
+
+.py-5 {
+  margin: 5rem 0;
+}
+
+.header {
+  background: url(/images/electricity.jpeg) no-repeat center center/cover;
+  padding-bottom: 30px;
+  color: white;
+  position: relative;
+}
+
+.header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header .content {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.header .content .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.header .content .navbar a {
+  color: white;
+  transition: all 200ms ease;
+}
+
+.header .content .navbar a:hover {
+  color: #e68e3b;
+  font-weight: bold;
+}
+
+.header .content .navbar .logo h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.header .content .navbar-links ul {
+  display: flex;
+  align-items: center;
+}
+
+.header .content .navbar-links ul li {
+  margin-left: 20px;
+}
+
+.header .content .showcase {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  height: 400px;
+}
+
+.header .content .showcase-text {
+  font-size: 1.5rem;
+}
+
+.header .content .showcase-text p {
+  margin: 20px 0;
+}
+
+.billing {
+  margin-top: 60px;
+  gap: 40px;
+  grid-template-columns: 60% 40%;
+}
+
+.billing img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.billing-text p {
+  margin: 15px 0;
+}
+
+.billing-text a {
+  display: inline-block;
+}
+
+.card-section {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 60px 0;
+}
+
+.card-section img {
+  width: 100%;
+  height: 150px;
+}
+
+.hotline {
+  margin-top: 60px;
+}
+
+.hotline .hotline-item {
+  background-color: #d87471;
+  color: #fff;
+  height: 90px;
+  width: 160px;
+  text-align: center;
+  align-self: center;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hotline .hotline-item h1, .hotline .hotline-item h2 {
+  font-weight: 300;
+}
