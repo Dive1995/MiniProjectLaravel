@@ -8,15 +8,24 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <div class="message">
+            <h5 class="text-red">{{session('msg')}}</h5>
+        </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- CEB id -->
             <div>
+                <x-label for="ceb" :value="__('CEB Id')" />
+
+                <x-input id="ceb" class="block mt-1 w-full" type="number" name="ceb" :value="old('ceb')" required autofocus />
+            </div>
+
+            <!-- Name -->
+            <div class="mt-4">
                 <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required />
             </div>
 
             <!-- Email Address -->

@@ -25,6 +25,17 @@
                             <li><a href="contact.php">Contact Us</a></li>
                             <li><a href="myceb.php">My CEB</a></li>
                             <li><a href="/login">Sign In</a></li>
+                            <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                            </li>
                         </ul>
                     </div>
                 </div>

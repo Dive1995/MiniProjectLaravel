@@ -34,12 +34,13 @@ Route::post('/myceb', function(){
 
     $billing->last_reading = request('reading');
 
-    $billing->save();
 });
 
 
 
 // new user
+
+
 Route::get('/newcustomer',function(){
     return view('newCustomer');
 });
@@ -58,8 +59,9 @@ Route::post('/newcustomer', function(){
     
     $newuser->save();
 
-    return redirect('/')->with('msg','Your request has been made successfully !!');
 });
+
+
 
 
 // feedback
@@ -86,10 +88,32 @@ Route::post('/feedback', function(){
 
 
 
-// dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// auth route for user and admin
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+// Route::group(['middleware' => ['auth','role:user']], function(){
+//     Route::get('/myceb','App\Http\Controllers\DashboardController@myceb')->name('myceb');
+// });
+
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
+});
+
+// admin roles
+
+Route::group(['middleware' => ['auth', 'role:admin']], function(){
+    Route::get('/dashboard/newrequest','App\Http\Controllers\DashboardController@newrequest')->name('dashboard.newrequest');
+    Route::get('/dashboard/userfeedback','App\Http\Controllers\DashboardController@feedback')->name('dashboard.userfeedback');
+    // Route::get('/dashboard','App\Http\Controllers\UserController@displayusers');
+    Route::post('/dashboard','App\Http\Controllers\UserController@addusers');
+});
+
+
+
 
 require __DIR__.'/auth.php';
 

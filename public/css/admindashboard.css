@@ -1,0 +1,39 @@
+.register-form {
+    width: 70%;
+    height: auto;
+    background-color: #f4f4f4;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.5);
+    top: 125px;
+  }
+  
+.register-form h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+.register-form form  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+
+.register-form form  input, form select {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+.register-form form .input .ceb-id {
+    width: 100%;
+  }
+  
+  
+.register-form form a {
+    display: block;
+    font-size: 12px;
+    margin-top: 20px;
+  }

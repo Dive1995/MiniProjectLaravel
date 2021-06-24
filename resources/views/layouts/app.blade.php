@@ -15,6 +15,13 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- myceb -->
+        <link rel="stylesheet" href="/css/myceb.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/admindashboard.css">
+
+        
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

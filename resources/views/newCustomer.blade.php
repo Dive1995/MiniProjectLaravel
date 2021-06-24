@@ -82,7 +82,7 @@
                                 <option value="domestic">Domestic Purpose</option>
                                 <option value="general">General Purpose</option>
                             </select>
-                        </input>
+                        <!-- </input> -->
                     
                     </div>
                     <button class="btn-secondary">Submit</button>
