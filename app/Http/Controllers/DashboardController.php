@@ -18,6 +18,7 @@ class DashboardController extends Controller
         $users = Allusers::all();
 
         if(Auth::user()->hasRole('user')){
+            // $user = Allusers::where('')
             return view('/myceb');
         }elseif(Auth::user()->hasRole('admin')){
             return view('/dashboard',['users' => $users]);

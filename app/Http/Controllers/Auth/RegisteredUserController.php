@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
         if(Allusers::where('ceb', '=', $request->input('ceb'))->first()){
             $request->validate([
                 'name' => 'required|string|max:255',
+                'ceb' => 'required|integer',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
             ]);
@@ -46,6 +47,7 @@ class RegisteredUserController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'ceb' => $request->ceb,
                 'password' => Hash::make($request->password),
             ]);
     
