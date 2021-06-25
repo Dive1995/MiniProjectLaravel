@@ -25,7 +25,7 @@ class CreateAllusersTable extends Migration
             $table->string('balance');
             $table->string('reading');
             $table->string('address');
-            $table->boolean('hasAccount');
+            $table->string('hasAccount');
         });
     }
 

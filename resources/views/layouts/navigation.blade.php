@@ -26,6 +26,14 @@
 
                 @if(Auth::user()->hasRole('admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard.updatereading')" :active="request()->routeIs('dashboard.updatereading')">
+                        {{ __('Update Readings') }}
+                    </x-nav-link>
+                </div>
+                @endif
+
+                @if(Auth::user()->hasRole('admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard.userfeedback')" :active="request()->routeIs('dashboard.userfeedback')">
                         {{ __('Feedback') }}
                     </x-nav-link>

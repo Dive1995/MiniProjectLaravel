@@ -78,7 +78,8 @@ Route::post('/feedback', function(){
 
     $feedback->title = request('title');
     $feedback->subject = request('subject');
-    $feedback->userID = '2';
+    // $feedback->userID = '2';
+    // $feedback->userID = Auth::user()->id;
 
     $feedback->save();
 
@@ -108,6 +109,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['auth', 'role:admin']], function(){
     Route::get('/dashboard/newrequest','App\Http\Controllers\DashboardController@newrequest')->name('dashboard.newrequest');
     Route::get('/dashboard/userfeedback','App\Http\Controllers\DashboardController@feedback')->name('dashboard.userfeedback');
+    Route::get('/dashboard/updatereading','App\Http\Controllers\DashboardController@updatereading')->name('dashboard.updatereading');
     // Route::get('/dashboard','App\Http\Controllers\UserController@displayusers');
     Route::post('/dashboard','App\Http\Controllers\UserController@addusers');
 });

@@ -9,7 +9,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <div class="message">
-            <h5 class="text-red">{{session('msg')}}</h5>
+            <h5 class="text-red-500 pb-1">{{session('msg')}}</h5>
         </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf

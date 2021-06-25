@@ -20,11 +20,11 @@ class UserController extends Controller
         $allusers->reading = request('reading');
         $allusers->balance = request('balance');
         $allusers->ceb = request('ceb');
-        $allusers->hasAccount = false;
+        $allusers->hasAccount = 'no';
         $allusers->save();
 
 
         $users = Allusers::all();
-        return view('/dashboard',['users' => $users]);
+        return redirect('/dashboard')->with('users',$users);
     }
 }

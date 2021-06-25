@@ -50,6 +50,11 @@ class RegisteredUserController extends Controller
             ]);
     
             event(new Registered($user));
+
+            $allusers = Allusers::where('ceb', '=', $request->input('ceb'))->first();
+
+            $allusers->hasAccount = 'yes';
+            $allusers->save();
     
             Auth::login($user);
             $user->attachRole('user');
