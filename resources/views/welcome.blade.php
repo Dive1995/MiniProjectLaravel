@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </a>
-            <a href="plans.php">
+            <a href="/plans">
                 <div class="card">
                     <img src="images/tariff.jpeg" alt="">
                     <div class="card-text">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </a>
-            <a href="feedback.php">
+            <a href="/feedback">
                 <div class="card">
                     <img src="images/feedback2.jpeg" alt="">
                     <div class="card-text">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Permission;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -50,6 +51,10 @@ class RegisteredUserController extends Controller
                 'ceb' => $request->ceb,
                 'password' => Hash::make($request->password),
             ]);
+
+            $createPost = Permission::create([
+                'name' => 'create-post',
+            ]);
     
             event(new Registered($user));
 
@@ -60,6 +65,7 @@ class RegisteredUserController extends Controller
     
             Auth::login($user);
             $user->attachRole('user');
+            $user->attachPermission($createPost);
 
             
 
@@ -72,6 +78,7 @@ class RegisteredUserController extends Controller
 
         // $request->validate([
         //     'name' => 'required|string|max:255',
+        //     'ceb' => 'required|integer',
         //     'email' => 'required|string|email|max:255|unique:users',
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
@@ -79,13 +86,16 @@ class RegisteredUserController extends Controller
         // $user = User::create([
         //     'name' => $request->name,
         //     'email' => $request->email,
+        //     'ceb'=> $request->ceb,
         //     'password' => Hash::make($request->password),
         // ]);
+
+        // error_log($user);
 
         // event(new Registered($user));
 
         // Auth::login($user);
-        // $user->attachRole('user');
+        // $user->attachRole('admin');
 
         // return redirect(RouteServiceProvider::HOME);
     }

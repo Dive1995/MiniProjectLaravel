@@ -98,7 +98,7 @@ a {
   justify-content: space-around;
   align-items: center;
 }
-
+/* 
 .m-1 {
   margin: 1rem;
 }
@@ -217,7 +217,7 @@ a {
 
 .py-5 {
   margin: 5rem 0;
-}
+} */
 
 .header {
   background: url(/images/electricity.jpeg) no-repeat center center/cover;

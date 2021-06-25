@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Feedback;
 use App\Models\Billings;
 use App\Models\Newuser;
+use App\Models\Allusers;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +22,6 @@ use App\Models\Newuser;
 // home screen
 Route::get('/', function () {
     return view('welcome');
-});
-
-
-
-// myceb account
-Route::get('/myceb', function(){
-    return view('myceb');
-});
-
-Route::post('/myceb', function(){
-    $billing = new Billings();
-
-    $billing->last_reading = request('reading');
-
 });
 
 
@@ -102,6 +90,30 @@ Route::post('/feedback', function(){
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
+});
+
+
+// users (myceb)
+Route::group(['middleware' => ['auth']], function(){
+    // Route::get('/myceb', function(){
+    //     // return view('myceb');
+    //     $user = Allusers::where('ceb',Auth::user()->ceb)->first();
+    //     return view('/myceb',['user'=>$user]);
+    // });
+        
+    // if(Auth::hasRole('user'))
+
+    Route::post('/dashboard', function(){
+        $billing = new Billings();
+    
+        $billing->last_reading = request('last_reading');
+        $billing->reading = request('reading');
+        $billing->userID = request('ceb');
+        $billing->connection_type = request('type');
+
+        error_log($billing);
+    
+    });
 });
 
 // admin roles

@@ -19,23 +19,23 @@
         <div class="userdetails">
             <div class="grid">
                 <h5>Name</h5>
-                <p>Thavarasa Diveshan</p>
+                <p>{{$user['fname']}} {{$user['lname']}}</p>
             </div>
-            <div class="grid">
+            <!-- <div class="grid">
                 <h5>Email</h5>
                 <p>Diveshan@gmail.com</p>
-            </div>
+            </div> -->
             <div class="grid">
                 <h5>CEB id</h5>
-                <p>234546813345</p>
+                <p>{{$user['ceb']}}</p>
             </div>
             <div class="grid">
                 <h5>NIC</h5>
-                <p>953092387V</p>
+                <p>{{$user['nic']}}</p>
             </div>
             <div class="grid">
                 <h5>Phone no.</h5>
-                <p>0765376766</p>
+                <p>{{$user['phone']}}</p>
             </div>
         </div>
     </div>
@@ -44,11 +44,11 @@
     <div class="card-item flex">
         <div class="item lastreading">
             <p>Last Reading</p>
-            <h4>23546</h4>
+            <h4>{{$user['reading']}}</h4>
         </div>
         <div class="item payment">
             <p>You have to pay</p>
-            <h4>Rs. 1450</h4>
+            <h4>Rs. {{$user['balance']}}</h4>
         </div>
     </div>
 
@@ -60,35 +60,51 @@
 
         <!-- form -->
     <div class="myceb-form">
-        <form action="/myceb" method="POST">
+        <form action="/dashboard" method="POST">
         @csrf
             <p>Please double check your reading before submitting, you can submit only one time for a month</p>
             <div class="grid userinput">
-                    <label for="current_reading">This month reading</label>
+                    <label for="current_reading">Enter this month reading</label>
                     <input id="current_reading" type="number" name="reading">
             </div>
-            <div class="grid">
-                    <label for="last_reading">Last reading</label>
-                    <input id="last_reading" type="number" disabled>
-            </div>
-            <div class="grid">
-                    <label for="units">Untits used</label>
-                    <input id="units" type="number" disabled>
-            </div>
-            <div class="grid">
-                    <label for="month_payment">Payment for this month</label>
-                    <input id="month_payment" type="number" disabled>
-            </div>
-            <div class="grid">
-                    <label for="total_payment">Total Payment</label>
-                    <input id="total_payment" type="number" disabled>
-            </div>
+            <!-- other needed hidden data -->
+            <input type="number" value="{{$user['reading']}}" name="last_reading" hidden>
+            <input type="text" value="{{$user['type']}}" name="type" hidden>
+            <input type="number" value="{{$user['ceb']}}" name="type" hidden>
+
             <button name="submit" type="submit" class="btn-primary">Submit</button>
+            
         </form>
+
+        <div class="pt-9 ">
+            <form action="">
+                <div class="grid userinput">
+                            <label for="current_readin">This month reading</label>
+                            <input id="current_readin" type="number" name="reading" disabled placeholder="">
+                    </div>
+                <div class="grid">
+                            <label for="last_reading">Last reading</label>
+                            <input id="last_reading" type="number" disabled placeholder="">
+                    </div>
+                    <div class="grid">
+                            <label for="units">Untits used</label>
+                            <input id="units" type="number" disabled>
+                    </div>
+                    <div class="grid">
+                            <label for="month_payment">Payment for this month</label>
+                            <input id="month_payment" type="number" disabled >
+                    </div>
+                    <div class="grid">
+                            <label for="total_payment">Total Payment</label>
+                            <input id="total_payment" type="number" disabled>
+                    </div>
+            </form>
+        </div>
     </div>
     
+    
     <!-- if payment exceeds 4000 give warning -->
-    <p>Please settle down your payments as soon as possible or <a href="contact.php">contact us</a> if you have any difficulties to avoid your electricity disconnection</p>
+    <p class="pt-4 pb-8">Please settle down your payments as soon as possible or <a href="contact.php">contact us</a> if you have any difficulties to avoid your electricity disconnection</p>
    
     
 </div>
