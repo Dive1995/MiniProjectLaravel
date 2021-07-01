@@ -60,7 +60,7 @@
 
         <!-- form -->
     <div class="myceb-form">
-        <form action="/dashboard" method="POST">
+        <form action="/myceb" method="post">
         @csrf
             <p>Please double check your reading before submitting, you can submit only one time for a month</p>
             <div class="grid userinput">
@@ -70,33 +70,35 @@
             <!-- other needed hidden data -->
             <input type="number" value="{{$user['reading']}}" name="last_reading" hidden>
             <input type="text" value="{{$user['type']}}" name="type" hidden>
-            <input type="number" value="{{$user['ceb']}}" name="type" hidden>
+            <input type="number" value="{{$user['ceb']}}" name="ceb" hidden>
 
             <button name="submit" type="submit" class="btn-primary">Submit</button>
             
         </form>
+       
+        {{Session::get('reading') ?? 'none' }}
 
-        <div class="pt-9 ">
+        <div class="pt-9 " style="display: {{session('display') ?? 'none'}}">
             <form action="">
                 <div class="grid userinput">
                             <label for="current_readin">This month reading</label>
-                            <input id="current_readin" type="number" name="reading" disabled placeholder="">
+                            <input id="current_readin" type="number" name="reading" disabled placeholder="{{session('reading') ?? 'null'}}">
                     </div>
                 <div class="grid">
                             <label for="last_reading">Last reading</label>
-                            <input id="last_reading" type="number" disabled placeholder="">
+                            <input id="last_reading" type="number" disabled placeholder="{{session('last_reading') ?? 'null'}}">
                     </div>
                     <div class="grid">
                             <label for="units">Untits used</label>
-                            <input id="units" type="number" disabled>
+                            <input id="units" type="number" disabled placeholder="{{session('units') ?? 'null'}}">
                     </div>
                     <div class="grid">
                             <label for="month_payment">Payment for this month</label>
-                            <input id="month_payment" type="number" disabled >
+                            <input id="month_payment" type="number" disabled placeholder="{{session('balance') ?? 'null'}}">
                     </div>
                     <div class="grid">
                             <label for="total_payment">Total Payment</label>
-                            <input id="total_payment" type="number" disabled>
+                            <input id="total_payment" type="number" disabled placeholder="{{session('total') ?? 'null'}}">
                     </div>
             </form>
         </div>

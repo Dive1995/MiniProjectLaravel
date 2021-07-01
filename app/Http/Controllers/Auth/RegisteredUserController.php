@@ -65,7 +65,7 @@ class RegisteredUserController extends Controller
     
             Auth::login($user);
             $user->attachRole('user');
-            $user->attachPermission($createPost);
+            // $user->attachPermission($createPost);
 
             
 

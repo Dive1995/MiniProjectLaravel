@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Allusers;
+use App\Models\Billings;
 
 class UserController extends Controller
 {
@@ -26,5 +27,18 @@ class UserController extends Controller
 
         $users = Allusers::all();
         return redirect('/dashboard')->with('users',$users);
+    }
+
+    public function billing(){
+        
+        $billing = new Billings();
+    
+        $billing->last_reading = request('last_reading');
+        $billing->reading = request('reading');
+        $billing->userID = request('ceb');
+        $billing->connection_type = request('type');
+        error_log('hi');
+        error_log($billing);
+        return redirect('/dashboard');
     }
 }

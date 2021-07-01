@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Allusers;
 use App\Models\Feedback;
-
 use Illuminate\Support\Facades\DB;
-
-
-
 
 class DashboardController extends Controller
 {
@@ -19,7 +15,7 @@ class DashboardController extends Controller
 
         if(Auth::user()->hasRole('user')){
             $user = Allusers::where('ceb',Auth::user()->ceb)->first();
-            return view('/myceb',['user'=>$user]);
+            return view('myceb',['user'=>$user]);
         }elseif(Auth::user()->hasRole('admin')){
             return view('/dashboard',['users' => $users]);
         }
@@ -39,12 +35,13 @@ class DashboardController extends Controller
 
         // $feedback = Feedback::join('allusers', 'feedback.userID', '=', 'allusers.id')
         //        ->get(['feedback.*', 'allusers.lname']);
-        // error_log($feedback);
+
 
         $feedback = Feedback::all();
         return view('userfeedback',['feedback'=>$feedback]);
     }
 
+    // show users those don't have online account and update their reading
     public function updatereading(){
         $users = Allusers::where('hasAccount','no')->get();
         // $users = Allusers::all();

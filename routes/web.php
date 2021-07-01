@@ -6,6 +6,7 @@ use App\Models\Billings;
 use App\Models\Newuser;
 use App\Models\Allusers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,7 @@ Route::get('/', function () {
 
 
 
-// new user
-
-
+// new users applying for connection
 Route::get('/newcustomer',function(){
     return view('newCustomer');
 });
@@ -49,6 +48,7 @@ Route::post('/newcustomer', function(){
 
 });
 
+//////////////////
 
 
 
@@ -59,9 +59,6 @@ Route::get('/feedback', function(){
 
 
 Route::post('/feedback', function(){
-    // error_log(request('title'));
-    // error_log(request('subject'));
-
     $feedback = new Feedback();
 
     $feedback->title = request('title');
@@ -74,6 +71,7 @@ Route::post('/feedback', function(){
     return redirect('/')->with('msg','Thank you for your feedback.');
 });
 
+/////////////////
 
 
 
@@ -88,32 +86,26 @@ Route::post('/feedback', function(){
 // });
 
 
+// route user and admin to their dashboards when they login / register
+
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
 });
 
+/////////////
+
 
 // users (myceb)
-Route::group(['middleware' => ['auth']], function(){
-    // Route::get('/myceb', function(){
-    //     // return view('myceb');
-    //     $user = Allusers::where('ceb',Auth::user()->ceb)->first();
-    //     return view('/myceb',['user'=>$user]);
-    // });
+Route::group(['middleware' => ['auth','role:user']], function(){
+    Route::get('/myceb', function(){
+        // return view('myceb');
+        $user = Allusers::where('ceb',Auth::user()->ceb)->first();
+        return view('/myceb',['user'=>$user]);
+    });
         
     // if(Auth::hasRole('user'))
-
-    Route::post('/dashboard', function(){
-        $billing = new Billings();
     
-        $billing->last_reading = request('last_reading');
-        $billing->reading = request('reading');
-        $billing->userID = request('ceb');
-        $billing->connection_type = request('type');
-
-        error_log($billing);
-    
-    });
+    Route::post('/myceb','App\Http\Controllers\UserController@billing');
 });
 
 // admin roles
